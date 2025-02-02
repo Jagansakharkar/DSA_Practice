@@ -2,15 +2,21 @@
 using namespace std;
 class Abc{
   int size;
-int arr[];
+  int* arr;
+
   public:
   Abc()
   {
     // get the size of array
     cout<<"Enter the size of array";
     cin>>size;
-    arr[size];
+    arr=new int[size];
   }
+  // Deallocate memory in the destructor
+  ~Abc() {
+        delete[] arr;  
+  }
+
   // add element into the array
   void addElementIntoArray()
   {
@@ -30,9 +36,10 @@ int arr[];
   }
 
 };
-  int main()
-  {
-    Abc a1;
-    a1.addElementIntoArray();
-    a1.traverse();
-  }
+int main()
+{
+  Abc a1;
+  a1.addElementIntoArray();
+  a1.traverse();
+  return 0;
+}
