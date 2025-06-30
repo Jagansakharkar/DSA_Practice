@@ -1,34 +1,36 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class Stack{
-  int* arr;
+class Stack
+{
+  int *arr;
   int size;
   int top;
-  public:
+
+public:
   Stack(int s)
   {
-    size=s;
-    arr=new int[size];
-    top=-1;
+    size = s;
+    arr = new int[size];
+    top = -1;
   }
 
   int push(int data)
   {
-    if(top==size-1)
+    if (top == size - 1)
     {
-      cout<<"Overflow";
+      cout << "Overflow";
       return -1;
     }
 
-    arr[++top]=data;
+    arr[++top] = data;
   }
 
   int pop()
   {
-    if(top==-1)
+    if (top == -1)
     {
-      cout<<"Underflow";
+      cout << "Underflow";
       return -1;
     }
     return arr[top--];
@@ -36,14 +38,13 @@ class Stack{
 
   int topElement()
   {
-    if(top==-1)
+    if (top == -1)
     {
-      cout<<"Underflow";
+      cout << "Underflow";
       return -1;
     }
     return arr[top];
   }
-
 };
 int main()
 {
@@ -54,10 +55,8 @@ int main()
   s.push(13);
   s.push(20);
 
-  cout<<s.pop()<<" ";
+  cout << s.pop() << " ";
 
-  
-
-  cout<<s.topElement();
+  cout << s.topElement();
   return 0;
 }

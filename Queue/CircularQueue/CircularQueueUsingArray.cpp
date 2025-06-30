@@ -1,54 +1,55 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class CircularQueue{
+class CircularQueue
+{
   int size;
   int rear;
   int front;
-  int* circularQueue;
+  int *circularQueue;
 
-  public:
+public:
   CircularQueue(int s)
   {
-size=s;
-front=rear=-1;
-circularQueue=new int[size];
+    size = s;
+    front = rear = -1;
+    circularQueue = new int[size];
   }
 
-  ~CircularQueue() { 
+  ~CircularQueue()
+  {
     delete[] circularQueue;
-    
-     }
+  }
 
   int insertIntoQueue(int data)
   {
     // checking if queue is full
-    if(rear==size-1)
+    if (rear == size - 1)
     {
-      cout<<"Queue is full";
+      cout << "Queue is full";
       return -1;
     }
     // add element into the queue
-    circularQueue[++rear]=data;
+    circularQueue[++rear] = data;
   }
 
-int deleteFromCircularQueue()
-{
-  // check queue is empty or not
-  if(rear==front)
+  int deleteFromCircularQueue()
   {
-    cout<<"Queue is empty";
-    return -1;  
+    // check queue is empty or not
+    if (rear == front)
+    {
+      cout << "Queue is empty";
+      return -1;
+    }
+    // delete from circular queue
+    cout << circularQueue[rear] << endl;
+    rear--;
   }
-  // delete from circular queue
-  cout<<circularQueue[rear]<<endl;
-  rear--;
-}
   void displayQueue()
   {
-    for(int i=0;i<=rear;i++)
+    for (int i = 0; i <= rear; i++)
     {
-      cout<<circularQueue[i]<<" ";
+      cout << circularQueue[i] << " ";
     }
   }
 };
